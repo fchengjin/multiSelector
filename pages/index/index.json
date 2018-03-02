@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "multi-selector": "/components/multiSelector/multiSelector"
+  }
+}

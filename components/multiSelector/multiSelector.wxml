@@ -1,0 +1,23 @@
+<!--components/multiSelector/multiSelector.wxml-->
+<view class='multi-selector {{disabled? "is_disabled":""}}'>
+  <view class='multi-selector--placeholder {{placeholderClass}}' style='{{placeholderStyle}}' wx:if='{{value.length=== 0}}'>{{placeholder}}</view>
+  <view class='multi-selector--value' bindtap='showModal'>{{showValue? value : selected}}</view>
+  <slot></slot>
+  <view class='multi-selector--control' hidden='{{!modalOpen}}'>
+    <view class='multi-selector--modal' animation='{{opacityAnimation}}' data-action='cancel' bindtap='hideModal' data-name='modal'></view>
+    <view class='multi-selector--area' animation='{{popAnimation}}'>
+      <view class='multi-selector--menu'>
+        <text class='multi-selector--menu-cancel' data-action='cancel' bindtap='hideModal'>{{cancelButtonText}}</text>
+        <text class='multi-selector--menu-confirm' data-action='confirm' bindtap='hideModal'>{{confirmButtonText}}</text>
+      </view>
+      <view class='multi-selector--checkbox-wrapper'>
+        <checkbox-group bindchange="bindCheckboxChange" class='multi-selector--checkbox'>
+          <label class="multi-selector--checkbox-item {{item.checked? 'is_checked': ''}}" wx:for="{{items}}" wx:key="{{item.name}}">
+            <text>{{item.value}}</text>
+            <checkbox value="{{item.name}}" checked="{{item.checked}}" />
+          </label>
+        </checkbox-group>
+      </view>
+    </view>
+  </view>
+</view>

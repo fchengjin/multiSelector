@@ -1,0 +1,5 @@
+<!--index.wxml-->
+<view class="container">
+<text class='tip'>showValue 为false时</text>
+<multi-selector class='selector' value='{{value}}' bindchange='bindSelectorChange' bindmodalopen='onModalOpen' placeholder='请选择你喜欢的水果' items='{{items}}' bindmodalclose='onModalClose' show-value='{{false}}'></multi-selector>
+</view>
