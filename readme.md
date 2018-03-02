@@ -28,4 +28,5 @@
 
 ## 一些tips
 - 滑动的时候禁止页面跟随滑动，通过`modalopen`和`modalclose`动态修改页面的overflow
+- 优化动画效果
 
