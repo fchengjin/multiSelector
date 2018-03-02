@@ -1,6 +1,8 @@
 # 微信小程序多选组件
 类似与小程序`picker`组件的多项选择组件
 ## 效果
+![](https://github.com/fchengjin/multiSelector/blob/master/images/showvalue-true.gif)
+![](https://github.com/fchengjin/multiSelector/blob/master/images/showvalue-false.gif)
 ## 属性说明
 | 属性名 | 类型 | 默认值 | 说明 |
 |-----| ----- | ----- | ----- |
