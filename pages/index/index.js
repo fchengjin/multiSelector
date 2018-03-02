@@ -1,7 +1,4 @@
 //index.js
-//获取应用实例
-const app = getApp()
-
 Page({
   data: {
     value: ['A','B','D','F','G'],
@@ -19,6 +16,8 @@ Page({
 
   },
   bindSelectorChange(e){
-
+	this.setData({
+		value: e.detail.value
+	})
   }
 })
