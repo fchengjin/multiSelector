@@ -11,7 +11,7 @@ multi-selector {
 }
 .multi-selector{
   width: 100%;
-  height: 100%;
+  height: 50rpx;
   overflow: hidden;
   text-overflow: ellipsis;
 }

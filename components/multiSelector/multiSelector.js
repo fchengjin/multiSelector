@@ -4,10 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    items: {
-      type: Array,
-      value: []
-    },
+    items: Array,
     placeholder: {
       type: String,
       value: ''
@@ -21,11 +18,7 @@ Component({
       type: Boolean,
       value: false
     },
-    value: {
-      type: Array,
-      value: [],
-      observer: function (newVal, oldVal) { } // 属性被改变时执行的函数（可选），也可以写成在methods段中定义的方法名字符串, 如：'_propertyChange'
-    },
+    value: Array,
     showValue: { //显示选择的结果还是选择的内容
       type: Boolean,
       value: true
@@ -59,6 +52,7 @@ Component({
   attached() {
     //初始化已选择
     const value = this.data.value;
+    console.log(value.length)
     const items = this.data.items;
     const selected = [];
     for (let i = 0; i < value.length; i++) {
@@ -101,6 +95,9 @@ Component({
       })
     },
     showModal(e) {
+      // if(this.data.disabled){
+      //   return;
+      // }
       this.triggerEvent('modalopen');
       //先将原来的选择结果备份
       const value = this.data.value;
@@ -128,12 +125,8 @@ Component({
       })
     },
     hideModal(e) {
-      const action = e.currentTarget.dataset.action || 'cancel';
-      const name = e.currentTarget.dataset.name;
-      if (name === 'modal' && !this.data.closeOnClickModal){
-        return;
-      }
       this.triggerEvent('modalclose');
+      const action = e.currentTarget.dataset.action || 'cancel';
       var opacityAnimation = wx.createAnimation({
         duration: 200,
         timingFunction: 'linear',
@@ -152,7 +145,7 @@ Component({
           selected: this.data.tempSelected,
           modalOpen: false
         });
-        this.triggerEvent('change',{detail:{value: this.data.value}});
+        this.triggerEvent('change',{value: this.data.value});
       }
     }
   }
